@@ -8,9 +8,10 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /*
 the only one request data class. other dto classes are for response
+GetCursOnDateXml
 */
 
-@XmlRootElement(name = "GetExchangeRatesOnDateXml", namespace = "http://web.cbr.ru/")
+@XmlRootElement(name = "GetExchangeRatesOnDateXmlRq", namespace = "http://web.cbr.ru/")
 @Data// getters and setters
 public class GetExchangeRatesOnDateXmlRq {
 

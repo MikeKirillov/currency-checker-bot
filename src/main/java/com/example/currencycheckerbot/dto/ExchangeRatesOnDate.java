@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /*
 class that includes just exchange parameter list
+ValuteCursOnDate
 */
 
 @XmlAccessorType(XmlAccessType.FIELD)// marks how to get/set parameter value
