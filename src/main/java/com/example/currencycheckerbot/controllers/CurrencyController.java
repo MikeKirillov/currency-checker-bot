@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.xml.datatype.DatatypeConfigurationException;
 import java.util.List;
 
 @RestController
@@ -15,7 +14,7 @@ public class CurrencyController {
     private final CentralRussianBankService centralRussianBankService;
 
     @PostMapping("/getCurrencies")
-    public List<ValuteCursOnDate> getExchangeRatesOnDate() throws DatatypeConfigurationException {
+    public List<ValuteCursOnDate> getValuteCursOnDate() throws Exception {
         return centralRussianBankService.getCurrenciesFromCbr();
     }
 }

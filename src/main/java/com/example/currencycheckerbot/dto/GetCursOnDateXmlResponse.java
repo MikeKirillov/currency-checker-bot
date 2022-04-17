@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /*
 the only one response data class
+name of class from CBR api
 */
 
 @XmlRootElement(name = "GetCursOnDateXmlResponse", namespace = "http://web.cbr.ru/")// root element

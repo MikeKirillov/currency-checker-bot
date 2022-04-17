@@ -19,15 +19,16 @@ SOAP веб-сервисами
 */
 
 public class CentralRussianBankService extends WebServiceTemplate {
-/*
-    Тут случается некоторая магия Spring и в момент запуска вашего приложения,
-    сюда поставляется значение из application.properties или application.yml
-*/
+    /*
+        Тут случается некоторая магия Spring и в момент запуска вашего приложения,
+        сюда поставляется значение из application.properties или application.yml
+    */
     @Value("${cbr.api.url}")
     private String cbrApiUrl;
-/*
-    Создаем метод получения данных
-*/
+
+    /*
+        Создаем метод получения данных
+    */
     public List<ValuteCursOnDate> getCurrenciesFromCbr() throws DatatypeConfigurationException {
         final GetCursOnDateXML getCursOnDateXML = new GetCursOnDateXML();
         GregorianCalendar cal = new GregorianCalendar();
@@ -41,7 +42,7 @@ public class CentralRussianBankService extends WebServiceTemplate {
             throw new IllegalArgumentException("Could not get response from CBR Service");
         }
 
-        final List<ValuteCursOnDate> courses = response.getGetExchangeRatesOnDateXmlResult().getRatesOnDates();
+        final List<ValuteCursOnDate> courses = response.getGetCursOnDateXmlResult().getValuteData();
         courses.forEach(course -> course.setName(course.getName().trim()));
         return courses;
     }

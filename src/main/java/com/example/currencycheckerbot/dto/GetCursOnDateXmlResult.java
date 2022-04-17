@@ -3,6 +3,7 @@ package com.example.currencycheckerbot.dto;
 /*
 includes list of objects ExchangeRatesOnDate for different currencies
 includes in GetCursOnDateXmlResponse as object
+name of class from CBR api
 */
 
 import lombok.Data;

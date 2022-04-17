@@ -8,6 +8,7 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /*
 the only one request data class. other dto classes are for response
+name of class from CBR api
 */
 
 @XmlRootElement(name = "GetCursOnDateXML", namespace = "http://web.cbr.ru/")
