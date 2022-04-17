@@ -1,8 +1,8 @@
 package com.example.currencycheckerbot.service;
 
-import com.example.currencycheckerbot.dto.ExchangeRatesOnDate;
-import com.example.currencycheckerbot.dto.GetExchangeRatesOnDateXmlRq;
-import com.example.currencycheckerbot.dto.GetExchangeRatesOnDateXmlRs;
+import com.example.currencycheckerbot.dto.ValuteCursOnDate;
+import com.example.currencycheckerbot.dto.GetCursOnDateXML;
+import com.example.currencycheckerbot.dto.GetCursOnDateXmlResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.WebServiceTemplate;
 
@@ -28,20 +28,20 @@ public class CentralRussianBankService extends WebServiceTemplate {
 /*
     Создаем метод получения данных
 */
-    public List<ExchangeRatesOnDate> getCurrenciesFromCbr() throws DatatypeConfigurationException {
-        final GetExchangeRatesOnDateXmlRq getCursOnDateXML = new GetExchangeRatesOnDateXmlRq();
+    public List<ValuteCursOnDate> getCurrenciesFromCbr() throws DatatypeConfigurationException {
+        final GetCursOnDateXML getCursOnDateXML = new GetCursOnDateXML();
         GregorianCalendar cal = new GregorianCalendar();
         cal.setTime(new Date());
 
         XMLGregorianCalendar xmlGregCal = DatatypeFactory.newInstance().newXMLGregorianCalendar(cal);
         getCursOnDateXML.setOnDate(xmlGregCal);
 
-        GetExchangeRatesOnDateXmlRs response = (GetExchangeRatesOnDateXmlRs) marshalSendAndReceive(cbrApiUrl, getCursOnDateXML);
+        GetCursOnDateXmlResponse response = (GetCursOnDateXmlResponse) marshalSendAndReceive(cbrApiUrl, getCursOnDateXML);
         if (response == null) {
             throw new IllegalArgumentException("Could not get response from CBR Service");
         }
 
-        final List<ExchangeRatesOnDate> courses = response.getGetExchangeRatesOnDateXmlResult().getRatesOnDates();
+        final List<ValuteCursOnDate> courses = response.getGetExchangeRatesOnDateXmlResult().getRatesOnDates();
         courses.forEach(course -> course.setName(course.getName().trim()));
         return courses;
     }

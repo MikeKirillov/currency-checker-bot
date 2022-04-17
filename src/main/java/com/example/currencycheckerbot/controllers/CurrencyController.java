@@ -1,6 +1,6 @@
 package com.example.currencycheckerbot.controllers;
 
-import com.example.currencycheckerbot.dto.ExchangeRatesOnDate;
+import com.example.currencycheckerbot.dto.ValuteCursOnDate;
 import com.example.currencycheckerbot.service.CentralRussianBankService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +15,7 @@ public class CurrencyController {
     private final CentralRussianBankService centralRussianBankService;
 
     @PostMapping("/getCurrencies")
-    public List<ExchangeRatesOnDate> getExchangeRatesOnDate() throws DatatypeConfigurationException {
+    public List<ValuteCursOnDate> getExchangeRatesOnDate() throws DatatypeConfigurationException {
         return centralRussianBankService.getCurrenciesFromCbr();
     }
 }

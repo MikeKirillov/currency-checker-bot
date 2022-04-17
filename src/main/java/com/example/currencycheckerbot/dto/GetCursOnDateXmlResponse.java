@@ -9,13 +9,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /*
 the only one response data class
-GetCursOnDateXmlResponse
 */
 
-@XmlRootElement(name = "GetExchangeRatesOnDateXmlRs", namespace = "http://web.cbr.ru/")// root element
+@XmlRootElement(name = "GetCursOnDateXmlResponse", namespace = "http://web.cbr.ru/")// root element
 @XmlAccessorType(XmlAccessType.FIELD)// marks how to get/set parameter value
 @Data// getters and setters
-public class GetExchangeRatesOnDateXmlRs {
-    @XmlElement(name = "GetExchangeRatesOnDateXmlResult", namespace = "http://web.cbr.ru/")// xml-element name
-    private GetExchangeRatesOnDateXmlResult getExchangeRatesOnDateXmlResult;
+public class GetCursOnDateXmlResponse {
+    @XmlElement(name = "GetCursOnDateXMLResult", namespace = "http://web.cbr.ru/")// xml-element name
+    private GetCursOnDateXmlResult getCursOnDateXmlResult;
 }

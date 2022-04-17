@@ -1,8 +1,8 @@
 package com.example.currencycheckerbot.config;
 
-import com.example.currencycheckerbot.dto.ExchangeRatesOnDate;
-import com.example.currencycheckerbot.dto.GetExchangeRatesOnDateXmlResult;
-import com.example.currencycheckerbot.dto.GetExchangeRatesOnDateXmlRs;
+import com.example.currencycheckerbot.dto.ValuteCursOnDate;
+import com.example.currencycheckerbot.dto.GetCursOnDateXmlResult;
+import com.example.currencycheckerbot.dto.GetCursOnDateXmlResponse;
 import com.example.currencycheckerbot.service.CentralRussianBankService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,10 +26,10 @@ public class AppConfig {
         cbrService.setMessageFactory(newSoapMsgFactory);
 
         jaxb2Marshaller.setClassesToBeBound(
-                GetExchangeRatesOnDateXmlRs.class,
-                GetExchangeRatesOnDateXmlRs.class,
-                GetExchangeRatesOnDateXmlResult.class,
-                ExchangeRatesOnDate.class
+                GetCursOnDateXmlResponse.class,
+                GetCursOnDateXmlResponse.class,
+                GetCursOnDateXmlResult.class,
+                ValuteCursOnDate.class
         );
 
         cbrService.setMarshaller(jaxb2Marshaller);
